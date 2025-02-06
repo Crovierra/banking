@@ -71,12 +71,12 @@ const AuthForm = ({type}: {type: string}) => {
         }
 
         if (type === 'sign-in') {
-            // const response = await signIn({
-            //     email: data.email,
-            //     password: data.password
-            // })
+            const response = await signIn({
+                email: data.email,
+                password: data.password
+            })
 
-            // if(response) router.push('/')
+            if(response) router.push('/')
         }
     } catch (error) {
         console.log(error)
@@ -125,7 +125,7 @@ const AuthForm = ({type}: {type: string}) => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 {type === 'sign-up' ? (
                     <>
-                    <div className="flex gap-12">
+                    <div className="flex gap-4">
                     <CustomInput
                         control={form.control}
                         name='firstName'
@@ -151,7 +151,7 @@ const AuthForm = ({type}: {type: string}) => {
                         label='City'
                         placeholder='Enter your specific city'/>
 
-                    <div className="flex gap-12">
+                    <div className="flex gap-4">
                     <CustomInput
                         control={form.control}
                         name='state'
@@ -165,7 +165,7 @@ const AuthForm = ({type}: {type: string}) => {
                         placeholder='ex: 11002'/>
                     </div>
                     
-                    <div className="flex gap-12">
+                    <div className="flex gap-4">
                     <CustomInput
                         control={form.control}
                         name='dateOfBirth'
