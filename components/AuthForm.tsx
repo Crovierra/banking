@@ -24,6 +24,7 @@ import { authFormSchema } from '@/lib/utils';
 import { Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import {signIn, signUp} from '@/lib/actions/user.actions'
+import PlaidLink from './PlaidLink';
 
 
 const AuthForm = ({type}: {type: string}) => {
@@ -50,9 +51,9 @@ const AuthForm = ({type}: {type: string}) => {
     setIsLoading(true)
     
     try {
+        
         // Sign Up with Appwrite & create plain token
-        if (type === 'sign-up') {
-            
+        if (type === 'sign-up') {            
             const userData = {
                 firstName: data.firstName!,
                 lastName: data.lastName!,
@@ -117,7 +118,7 @@ const AuthForm = ({type}: {type: string}) => {
         </header>
         {user ? (
             <div className='flex flex-col gap-4'>
-                {/* PaidLink */}
+                <PlaidLink user={user} variant='primary' />
             </div>
         ) : (
             <>
